@@ -1,0 +1,6 @@
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.csprojAssemblyReference.cache
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.csproj.CoreCompileInputs.cache
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.RazorAssemblyInfo.cache
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.RazorAssemblyInfo.cs
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.AssemblyInfoInputs.cache
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/SillyStringzFactory.AssemblyInfo.cs
