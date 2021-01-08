@@ -12156,9 +12156,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/SillyStringzFactory.csproj",
-      "projectName": "SillyStringzFactory",
-      "projectPath": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/SillyStringzFactory.csproj",
+      "projectUniqueName": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/Factory.csproj",
+      "projectName": "Factory",
+      "projectPath": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/Factory.csproj",
       "packagesPath": "/Users/callie/.nuget/packages/",
       "outputPath": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/",
       "projectStyle": "PackageReference",

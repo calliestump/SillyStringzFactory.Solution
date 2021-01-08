@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace SillyStringzFactory.Migrations
+namespace Factory.Migrations
 {
     [DbContext(typeof(FactoryContext))]
-    [Migration("20210108164049_Initial")]
+    [Migration("20210108165326_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
