@@ -22,12 +22,17 @@ namespace Factory.Controllers
     }
     public ActionResult Create()
     {
+      //ViewBag.EngineerId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View();
     }
     [HttpPost]
-    public ActionResult Create(Engineer engineer)
+    public ActionResult Create(Engineer engineer) //, int MachineId
     {
       _db.Engineers.Add(engineer);
+      // if (MachineId != 0)
+      // {
+      //   _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+      // }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -42,11 +47,16 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
+      //ViewBag.EngineerId = new SelectList(_db.Machines, "MachineId", "MachineName"); // transfers data from controller to view
       return View(thisEngineer);
     }
     [HttpPost]
-    public ActionResult Edit(Engineer engineer)
+    public ActionResult Edit(Engineer engineer) //, int MachineId
     {
+      // if (MachineId != 0)
+      // {
+      //   _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+      // }
       _db.Entry(engineer).State = EntityState.Modified; // Holds all information for engineer
       _db.SaveChanges(); // sends information for engineer to database
       return RedirectToAction("Index"); // returns to the index page of engineers.
@@ -62,6 +72,14 @@ namespace Factory.Controllers
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
       _db.Engineers.Remove(thisEngineer); // removes all information regarding this specific engineer
       _db.SaveChanges(); // saves updated removal to database
+      return RedirectToAction("Index");
+    }
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+      var joinEntry = _db.EngineerMachine.FirstOrDefault(entry => entry.EngineerMachineId == joinId);
+      _db.EngineerMachine.Remove(joinEntry);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
   }

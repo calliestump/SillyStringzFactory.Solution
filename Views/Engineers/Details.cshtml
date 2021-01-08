@@ -1,3 +1,25 @@
 @{
   Layout = "_Layout";
 }
+
+@model Factory.Models.Engineer;
+
+<h2>Engineer Overview</h2>
+<hr>
+<h3>Name: @Html.DisplayFor(model => model.EngineerName)</h3>
+
+@if(Model.JoinTables.Count == 0)
+{
+  <p>This Engineer is currently not assigned to any machines.</p>
+}
+else
+{
+  <h4><u>Assigned Machines</u></h4>
+  <ul>
+    @foreach(var join in Model.JoinTables)
+    {
+      <li>@join.Machine.MachineName</li>
+    }
+  </ul>
+}
+<p>@Html.ActionLink("Edit Engineer Information", "Edit", new { id = Model.EngineerId })</p>
