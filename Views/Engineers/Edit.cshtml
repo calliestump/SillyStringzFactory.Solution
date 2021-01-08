@@ -5,15 +5,15 @@
 @model Factory.Models.Engineer
 <h1> | Engineers | </h1>
 
-<h4>Edit Information: @Html.DisplayFor(model => model.EngineerName)</h4>
+<h3>Edit Information: <strong>@Html.DisplayFor(model => model.EngineerName)</h3></strong>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.EngineerId)
 
-  @Html.LabelFor(model => model.EngineerName)
-  @Html.EditorFor(model => model.EngineerName)
+  <h4>@Html.Label("Engineer Name")<br></h4>
+  @Html.EditorFor(model => model.EngineerName)<br><br>
 
   <input type="submit" value="Save" class="btn btn-default"/>
 }
-<p>@Html.ActionLink("Engineer List", "Index")</p>
+<br><p>@Html.ActionLink("Engineer List", "Index")</p>

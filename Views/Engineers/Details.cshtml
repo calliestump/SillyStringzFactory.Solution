@@ -5,17 +5,16 @@
 @model Factory.Models.Engineer;
 <h1> | Engineers | </h1>
 
-<h2>Overview</h2>
-<hr>
-<h3>Name: @Html.DisplayFor(model => model.EngineerName)</h3>
+<h2><u>Overview</u></h2>
+<h3><strong>@Html.DisplayFor(model => model.EngineerName)</strong></h3><br>
 
 @if(Model.JoinTables.Count == 0)
 {
-  <p>This Engineer is currently not assigned to any machine(s).</p>
+  <span><p>This Engineer is currently not assigned to any machine(s).</p></span>
 }
 else
 {
-  <h4><u>Assigned Machine(s)</u></h4>
+  <h4><u><strong>Assigned Machine(s)</strong></u></h4>
   <ul>
     @foreach(var join in Model.JoinTables)
     {
@@ -28,7 +27,7 @@ else
     }
   </ul>
 }
-<p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId }) </p>
+<br><p>@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId }) </p>
 <p>@Html.ActionLink("Edit Engineer Information", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to Engineers", "Index")</p>
