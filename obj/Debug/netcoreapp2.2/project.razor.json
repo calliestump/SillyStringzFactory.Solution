@@ -1917,6 +1917,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/Views/Engineers/AddMachine.cshtml",
+      "TargetPath": "Views\\Engineers\\AddMachine.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/Views/Machines/Delete.cshtml",
       "TargetPath": "Views\\Machines\\Delete.cshtml",
       "FileKind": "mvc"

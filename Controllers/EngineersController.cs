@@ -61,6 +61,24 @@ namespace Factory.Controllers
       _db.SaveChanges(); // sends information for engineer to database
       return RedirectToAction("Index"); // returns to the index page of engineers.
     }
+    public ActionResult AddMachine(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id); 
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
+      return View (thisEngineer);
+    }
+    [HttpPost]
+    public ActionResult AddMachine(Engineer engineer, int MachineId)
+    {
+      if (MachineId != 0)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+
     public ActionResult Delete(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
@@ -69,7 +87,7 @@ namespace Factory.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); 
       _db.Engineers.Remove(thisEngineer); // removes all information regarding this specific engineer
       _db.SaveChanges(); // saves updated removal to database
       return RedirectToAction("Index");
