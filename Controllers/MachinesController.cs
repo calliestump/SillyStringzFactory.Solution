@@ -30,7 +30,8 @@ namespace Factory.Controllers
       _db.Machines.Add(machine);
       if (EngineerId != 0)
       {
-        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+        _db.EngineerMachine.Add(new EngineerMachine() { 
+          EngineerId = EngineerId, MachineId = machine.MachineId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -39,7 +40,7 @@ namespace Factory.Controllers
     {
       var thisMachine = _db.Machines //returns name of Engineer & id
         .Include(machine => machine.JoinTables) //finds machines related to the engineer using "Join Tables"
-        .ThenInclude(join => join.Machine) // adds the related machine 
+        .ThenInclude(join => join.Engineer) // adds the related machine 
         .FirstOrDefault(machine => machine.MachineId == id); // finds engineer that matches the id
       return View(thisMachine);
     }

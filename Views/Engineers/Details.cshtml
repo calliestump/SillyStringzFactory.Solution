@@ -10,16 +10,24 @@
 
 @if(Model.JoinTables.Count == 0)
 {
-  <p>This Engineer is currently not assigned to any machines.</p>
+  <p>This Engineer is currently not assigned to any machine(s).</p>
 }
 else
 {
-  <h4><u>Assigned Machines</u></h4>
+  <h4><u>Assigned Machine(s)</u></h4>
   <ul>
     @foreach(var join in Model.JoinTables)
     {
       <li>@join.Machine.MachineName</li>
+      @using (Html.BeginForm("DeleteMachine", "Engineers"))
+      {
+        @Html.Hidden("joinId", @join.EngineerMachineId)
+        <input type="submit" value="Delete" />
+      }
     }
   </ul>
 }
+<p>@Html.ActionLink("Add an Machine", "AddMachine", new { id = Model.EngineerId }) </p>
 <p>@Html.ActionLink("Edit Engineer Information", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Back to Engineers", "Index")</p>
