@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+//using Microsoft.AspNetCore.Identity.EntityFrameworkCore; ?
 namespace Factory.Models
 {
   public class FactoryContext : DbContext

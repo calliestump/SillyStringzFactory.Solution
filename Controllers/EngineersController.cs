@@ -1,0 +1,68 @@
+using Microsoft.AspNetCore.Mvc;
+using Office.Models;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace Factory.Controllers
+{
+  public class EngineersController : Controllers 
+  {
+    private readonly FactoryContext _db; // Defines Database as Factory
+    public EngineersController(FactoryContext db) // constructor for Engineer Controller
+    {
+      _db = db;
+    }
+
+    public ActionResult Index()
+    {
+      List<Engineer> model = _db.Engineers.ToList();
+      return View(model);
+    }
+    public ActionResult Create()
+    {
+      return View();
+    }
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    public ActionResult Details(int id)
+    {
+      var thisEngineer = _db.Engineers //returns name of Engineer & id
+        .Include(EngineersController => engineers.JoinTables) //finds machines related to the engineer using "Join Tables"
+        .ThenInclude(join => join.Machine) // adds the related machine 
+        .FirstOrDefault(engineer => engineer.EngineerId == id); // finds engineer that matches the id
+      return View(thisEngineer);
+    }
+    public ActionResult Edit(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
+      return View(thisEngineer);
+    }
+    [HttpPost]
+    public ActionResult Edit(Engineer engineer)
+    {
+      _db.Entry(engineer).State = EntityState.Modified; // Holds all information for engineer
+      _db.SaveChanges(); // sends information for engineer to database
+      return RedirectToAction("Index"); // returns to the index page of engineers.
+    }
+    public ActionResult Delete(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
+      return View(thisEngineer);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
+      _db.Course.Remove(thisEngineer); // removes all information regarding this specific engineer
+      _db.SaveChanges(); // saves updated removal to database
+      return RedirectToAction("Index");
+    }
+  }
+}
