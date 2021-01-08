@@ -10,7 +10,7 @@
 
 @if(Model.JoinTables.Count == 0)
 {
-  <span><p>This Engineer is currently not assigned to any machine(s).</p></span>
+  <span><h4>This Engineer is currently not assigned to any machine(s).</h4></span>
 }
 else
 {
@@ -31,3 +31,4 @@ else
 <p>@Html.ActionLink("Edit Engineer Information", "Edit", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to Engineers", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

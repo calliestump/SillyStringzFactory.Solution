@@ -9,7 +9,7 @@
 <hr>
 @if (@Model.Count == 0)
 {
-  <h3>There are no machines installed.</h3>
+  <span><h4>There are no machines installed.</h4></span>
 }
 
 @foreach (Machine machine in Model)
@@ -21,5 +21,5 @@
     //<input type="submit" value="Remove Machine" class="btn btn-default"/>
   }
 }
-<p>@Html.ActionLink("Add a new Machine", "Create")</p>
+<br><p>@Html.ActionLink("Add new Installation", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

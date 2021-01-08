@@ -5,15 +5,16 @@
 @model Factory.Models.Machine
 <h1> | Machines | </h1>
 
-<h4>Edit Machine Information: @Html.DisplayFor(model => model.MachineName)</h4>
+<h3>Edit Information: <strong>@Html.DisplayFor(model => model.MachineName)</h3></strong>
 
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.MachineId)
 
-  @Html.LabelFor(model => model.MachineName)
-  @Html.EditorFor(model => model.MachineName)
+  <h4>@Html.Label("Machine Name")<br></h4>
+  @Html.EditorFor(model => model.MachineName)<br><br>
 
   <input type="submit" value="Save" class="btn btn-default"/>
 }
-<p>@Html.ActionLink("Machine List", "Index")</p>
+<br><p>@Html.ActionLink("Machine List", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

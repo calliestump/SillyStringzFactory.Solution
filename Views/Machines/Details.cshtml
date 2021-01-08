@@ -5,13 +5,12 @@
 @model Factory.Models.Machine;
 <h1> | Machines | </h1>
 
-<h2>Engineer Overview</h2>
-<hr>
-<h3>Name: @Html.DisplayFor(model => model.MachineName)</h3>
+<h2><u>Overview</h2></u>
+<h3><strong>@Html.DisplayFor(model => model.MachineName)</strong></h3><br>
 
 @if(Model.JoinTables.Count == 0)
 {
-  <p>This Machine is currently not assigned to any Engineer(s).</p>
+  <span><h4>This Machine is currently not assigned to any Engineer(s).</h4></span>
 }
 else
 {
@@ -28,7 +27,8 @@ else
     }
   </ul>
 }
-<p>@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId }) </p>
+<br><p>@Html.ActionLink("Add an Engineer", "AddEngineer", new { id = Model.MachineId }) </p>
 <p>@Html.ActionLink("Edit Machine Information", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine Information", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Back to Machines", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

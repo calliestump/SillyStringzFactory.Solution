@@ -5,15 +5,15 @@
 @model Factory.Models.Machine
 <h1> | Machines | </h1>
 <hr>
-<h4>Add a Machine</h4>
+<h2><u>Machine Installment Form</u></h2><br>
 @using (Html.BeginForm())
 {
   @Html.Label("Machine Name")<br>
   @Html.TextBoxFor(model => model.MachineName)<br><br>
 
-  @Html.Label("Select Engineer")
-  @Html.DropDownList("EngineerId")
-  <input type="submit" value="Add machine" class="btn btn-default">
+  @Html.Label("Select Engineer")<br>
+  @Html.DropDownList("EngineerId")<br><br>
+  <input type="submit" value="Add Installation" class="btn btn-default">
 }
-<br><p>@Html.ActionLink("Show all Machines", "Index")</p>
+<br><p>@Html.ActionLink("Machines", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
