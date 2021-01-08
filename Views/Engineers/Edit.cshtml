@@ -3,3 +3,16 @@
 }
 
 @model Factory.Models.Engineer
+
+<h4>Edit Engineers Information: @Html.DisplayFor(model => model.EngineerName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.LabelFor(model => model.EngineerName)
+  @Html.EditorFor(model => model.EngineerName)
+
+  <input type="submit" value="Save" class="btn btn-default"/>
+}
+<p>@Html.ActionLink("Engineer List", "Index")</p>
