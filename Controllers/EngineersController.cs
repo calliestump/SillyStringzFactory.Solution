@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Office.Models;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
-  public class EngineersController : Controllers 
+  public class EngineersController : Controller
   {
     private readonly FactoryContext _db; // Defines Database as Factory
     public EngineersController(FactoryContext db) // constructor for Engineer Controller
@@ -34,7 +34,7 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers //returns name of Engineer & id
-        .Include(EngineersController => engineers.JoinTables) //finds machines related to the engineer using "Join Tables"
+        .Include(engineer => engineer.JoinTables) //finds machines related to the engineer using "Join Tables"
         .ThenInclude(join => join.Machine) // adds the related machine 
         .FirstOrDefault(engineer => engineer.EngineerId == id); // finds engineer that matches the id
       return View(thisEngineer);
@@ -60,7 +60,7 @@ namespace Factory.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id); // finds the match and assigns it to "thisEngineer"
-      _db.Course.Remove(thisEngineer); // removes all information regarding this specific engineer
+      _db.Engineers.Remove(thisEngineer); // removes all information regarding this specific engineer
       _db.SaveChanges(); // saves updated removal to database
       return RedirectToAction("Index");
     }
