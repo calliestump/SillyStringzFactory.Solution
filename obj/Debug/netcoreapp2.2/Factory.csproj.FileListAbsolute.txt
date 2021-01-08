@@ -33,3 +33,4 @@
 /Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/Factory.dll
 /Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/Factory.pdb
 /Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/Factory.csproj.CopyComplete
+/Users/callie/Desktop/Week11/SillyStringzFactory.Solution/Factory/obj/Debug/netcoreapp2.2/Razor/Views/Engineers/AddMachine.g.cshtml.cs
