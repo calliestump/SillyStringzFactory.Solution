@@ -72,7 +72,6 @@ namespace Factory.Controllers
     {
       if (EngineerId != 0)
       {
-        //var returnedJoin = _db.EngineerMachine.Any(join => join.MachineId == machine.MachineId && join.EngineerId == EngineerId);
         _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
       }
       _db.SaveChanges();
@@ -81,13 +80,13 @@ namespace Factory.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id); // finds the match and assigns it to "thisEngineer"
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
       return View(thisMachine);
     }
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id); // finds the match and assigns it to "thisEngineer"
+      var thisMachine = _db.Machines.FirstOrDefault(machines => machines.MachineId == id);
       _db.Machines.Remove(thisMachine); // removes all information regarding this specific engineer
       _db.SaveChanges(); // saves updated removal to database
       return RedirectToAction("Index");
