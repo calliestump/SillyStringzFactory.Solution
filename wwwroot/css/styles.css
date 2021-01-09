@@ -3,6 +3,8 @@
   border-style: double;
   width: auto;
   height: auto;
+  
+
 }
 .spacing {
   padding: 20px;
@@ -14,7 +16,7 @@ body {
   background-image: url("factory.jpg");
 }
 h1 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 span {
   color: rgb(192, 53, 53);
